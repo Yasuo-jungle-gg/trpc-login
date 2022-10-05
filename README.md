@@ -1,34 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Esta es una simple app de logeo con EL T3 stack [https://github.com/t3-oss/create-t3-app] 
+del que han estado hablando en youtube últimamente y me parece bastante interesante la 
+rapidez con la que se puede desarrollar una aplicación con todo un stack de tecnologías
+del lado del cliente[1], servidor[2] y base de datos[3]
 
-## Getting Started
 
-First, run the development server:
+Este stack se compone de las siguientes tecnologías y estas son mis opiniones:
+-Typescript()
+-Tailwind CSS(en esta app estoy usando css puro pero tailwind me gusta también)
+-TRPC(Es una nueva alternativa a GraphQL, que simplifica las queries de una manera segura con typescript [https://trpc.io])
+-Prisma ORM(por alguna cosa prefiero SQL en vez de usar orm's, pero la estructura de los orm's los hace bastante simples de entender a simple vista)
+-Next JS(En mi opinión svelte es un muy buen framework mas que nada por el hecho de que no tiene virtual DOM y puedo ver y nombrar con facilidad
+las classNames de los div con mucha mas comprensibilidad que en el virtual DOM de react en el que está basado next)
+-PostgreSQL(Este lo ejecuté en un contenedor de Docker pero se puede usar cualquier otra alternativa igual como PlanetScale o Railway que son geniales en mi opinión)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+OJO, toda esta aplicación la seguí de este tutorial [https://www.youtube.com/watch?v=syEWlxVFUrY] ya que quería hacer un login con distintas tecnologías
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+En el archivo NOTES.md están los comandos para crear una aplicación, instalar TRPC y otras dependencias e instalar prismaORM, voy a dejar los pasos acá:
+- Crear next app con typeScript:
+      - [yarn create next-app trpc-nombredetuapp --typescript]
+- Instalar TRPC y otras dependencias: 
+- "yarn add @trpc/client @trpc/server @trpc/react @trpc/next zod react-query superjson jotai @prisma/client react-hook-form jsonwebtoken cookie"
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+"yarn add @types/jsonwebtoken @types/cookie -D"
 
-## Learn More
+-Y finalmente crear un contenedor PostgreSQL en docker y especificar el puerto 5432 de la base de datos con el servidor en la variable de entorno DATABASE_URL
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-y listo se tiene una aplicación completa corriendo en localhost:3000, a construir cosas bacanes.
